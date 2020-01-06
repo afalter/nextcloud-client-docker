@@ -12,7 +12,7 @@ ENV NC_USER=username \
 
 
 # create group and user
-RUN adduser --gid 100 -D -u 99 unraid
+RUN adduser -G 100 -D -u 99 unraid
 
 # update repositories and install nextcloud-client
 RUN apk update && apk add nextcloud-client && rm -rf /etc/apk/cache
