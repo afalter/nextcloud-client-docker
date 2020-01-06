@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # ensure, that the sync dir exists and is owned by the user
-[ -d $NC_SOURCE_DIR ] || mkdir -p $NC_SOURCE_DIR
-echo "chown $USER:$USER $NC_SOURCE_DIR"
-chown -R $USER:$USER $NC_SOURCE_DIR
+[ -d /media/nextcloud ] || mkdir -p /media/nextcloud
+echo "chown -R 99:100 /media/nextcloud"
+chown -R 99:100 /media/nextcloud
 
 while true
 do
-	nextcloudcmd $( [ "$NC_HIDDEN" == true ] && echo "-h" ) $( [ "$NC_SILENT" == true ] && echo "--silent" ) $( [ "$NC_TRUST_CERT" == true ] && echo "--trust" ) --non-interactive -u $NC_USER -p $NC_PASS $NC_SOURCE_DIR $NC_URL
+	nextcloudcmd $( [ "$NC_HIDDEN" == true ] && echo "-h" ) $( [ "$NC_SILENT" == true ] && echo "--silent" ) $( [ "$NC_TRUST_CERT" == true ] && echo "--trust" ) --non-interactive -u $NC_USER -p $NC_PASS /media/nextcloud $NC_URL
 	
 	#check if exit!
 	if [ "$NC_EXIT" = true ] ; then
