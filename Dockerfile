@@ -20,7 +20,7 @@ ENV USER=$USER \
     NC_HIDDEN=false
 
 # create user
-RUN adduser -G $GROUP -D -u $USER_UID $USER
+RUN adduser -G $GROUP -g "umask=0000" -D -u $USER_UID $USER
 
 # update repositories and install nextcloud-client
 RUN apk update && apk add nextcloud-client && rm -rf /etc/apk/cache
