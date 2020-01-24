@@ -4,6 +4,7 @@
 [ -d /media/nextcloud ] || mkdir -p /media/nextcloud
 echo "chown -R $USER:$GROUP /media/nextcloud"
 chown -R $USER:$GROUP /media/nextcloud
+chmod -R 777 /media/nextcloud
 
 while true
 do
